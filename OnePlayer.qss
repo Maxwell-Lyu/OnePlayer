@@ -11,6 +11,6 @@ QTabWidget::pane {
     /* 解决令人发指的问题, 右/下白边 */
     border: none;
 }
-QPushButton#pushButtonList {
+QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyric::checked {
     background: #1e88e5;
 }

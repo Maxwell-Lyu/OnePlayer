@@ -14,6 +14,4 @@ public:
 
 private:
     Ui::OnePlayerClass ui;
-private slots:
-    void onSwitchTab(int index);
 };

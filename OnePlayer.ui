@@ -39,25 +39,17 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="pushButtonList">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="pushButtonPlayer">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="2">
      <widget class="QPushButton" name="pushButtonLyric">
       <property name="text">
        <string>PushButton</string>
       </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
      </widget>
     </item>
     <item row="1" column="0" colspan="3">
@@ -75,7 +67,7 @@
        <bool>false</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabList">
        <attribute name="title">
@@ -169,11 +161,36 @@
       </widget>
      </widget>
     </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="pushButtonPlayer">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="pushButtonList">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+    </item>
    </layout>
-   <zorder>pushButtonLyric</zorder>
-   <zorder>tabWidget</zorder>
-   <zorder>pushButtonPlayer</zorder>
-   <zorder>pushButtonList</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
@@ -181,4 +198,7 @@
   <include location="OnePlayer.qrc"/>
  </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>

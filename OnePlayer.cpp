@@ -5,11 +5,6 @@ OnePlayer::OnePlayer(QWidget *parent)
 {
     ui.setupUi(this);
     ui.tabWidget->tabBar()->hide();
-    connect(ui.pushButtonList, &QPushButton::clicked, this, [=] {onSwitchTab(0);});
-    connect(ui.pushButtonPlayer, &QPushButton::clicked, this, [=]{onSwitchTab(1);});
-    connect(ui.pushButtonLyric, &QPushButton::clicked, this, [=]{onSwitchTab(2);});
-}
-
-void OnePlayer::onSwitchTab(int index) {
-    ui.tabWidget->setCurrentIndex(index);
+    connect(ui.buttonGroup, QOverload<int>::of(&QButtonGroup::buttonClicked),
+        [=](int id) { ui.tabWidget->setCurrentIndex(id + 4); });
 }
