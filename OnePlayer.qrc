@@ -2,4 +2,7 @@
     <qresource prefix="/style">
         <file>OnePlayer.qss</file>
     </qresource>
+    <qresource prefix="/img">
+        <file alias="testBG">asset/img/KOBAYASHI AVA2.png</file>
+    </qresource>
 </RCC>
