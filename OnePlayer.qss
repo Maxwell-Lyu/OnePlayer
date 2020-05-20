@@ -1,0 +1,16 @@
+QWidget#centralWidget {
+    border: none;
+    margin: 0px;
+    background: #212121;
+}
+QWidget {
+    margin: 0px 0px 0px 0px;
+    background: #424242;
+}
+QTabWidget::pane {
+    /* 解决令人发指的问题, 右/下白边 */
+    border: none;
+}
+QPushButton#pushButtonList {
+    background: #1e88e5;
+}
