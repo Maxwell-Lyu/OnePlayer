@@ -1,19 +1,23 @@
-QWidget#centralWidget {
+ï»¿QWidget#centralWidget {
     border: none;
     margin: 0px;
     background: #212121;
 }
+
 QWidget {
     margin: 0px 0px 0px 0px;
     background: #424242;
 }
+
 QTabWidget::pane {
-    /* ½â¾öÁîÈË·¢Ö¸µÄÎÊÌâ, ÓÒ/ÏÂ°×±ß */
+    /* è§£å†³ä»¤äººå‘æŒ‡çš„é—®é¢˜, å³/ä¸‹ç™½è¾¹ */
     border: none;
 }
+
 QLabel {
     background: transparent;
 }
+
 QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyric::checked {
     background: #1e88e5;
 }

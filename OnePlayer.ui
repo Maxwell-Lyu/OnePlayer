@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>622</width>
-    <height>439</height>
+    <width>590</width>
+    <height>686</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -40,7 +40,7 @@
      <number>0</number>
     </property>
     <item row="0" column="2">
-     <widget class="QPushButton" name="pushButtonLyric">
+     <widget class="QPushButton" name="btnLyric">
       <property name="text">
        <string>PushButton</string>
       </property>
@@ -48,7 +48,36 @@
        <bool>true</bool>
       </property>
       <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
+       <string notr="true">buttonGroupTab</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="btnList">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroupTab</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="btnPlayer">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroupTab</string>
       </attribute>
      </widget>
     </item>
@@ -121,6 +150,106 @@
         <property name="spacing">
          <number>0</number>
         </property>
+        <item row="3" column="0" colspan="5">
+         <widget class="QLabel" name="labelAlbum">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QPushButton" name="btnPlay">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>pl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QPushButton" name="btnNext">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>nx</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4">
+         <widget class="QPushButton" name="btnRand">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>rando</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0" colspan="5">
+         <widget class="QSlider" name="sliderProgress">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" colspan="3">
+         <widget class="QSlider" name="sliderVolume">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="btnPrev">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>PR</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="5">
+         <widget class="QLabel" name="labelArtist">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="btnStop">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>stop</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="5">
+         <widget class="QLabel" name="labelSong">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tabLyric">
@@ -154,44 +283,32 @@
       </widget>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QPushButton" name="pushButtonPlayer">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="pushButtonList">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup</string>
-      </attribute>
-     </widget>
-    </item>
    </layout>
+   <zorder>btnPlayer</zorder>
+   <zorder>btnLyric</zorder>
+   <zorder>btnList</zorder>
+   <zorder>tabWidget</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>btnList</tabstop>
+  <tabstop>btnPlayer</tabstop>
+  <tabstop>btnLyric</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>sliderVolume</tabstop>
+  <tabstop>sliderProgress</tabstop>
+  <tabstop>btnStop</tabstop>
+  <tabstop>btnPrev</tabstop>
+  <tabstop>btnPlay</tabstop>
+  <tabstop>btnNext</tabstop>
+  <tabstop>btnRand</tabstop>
+ </tabstops>
  <resources>
   <include location="OnePlayer.qrc"/>
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroupTab"/>
  </buttongroups>
 </ui>
