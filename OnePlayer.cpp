@@ -2,14 +2,11 @@
 
 OnePlayer::OnePlayer(QWidget* parent)
 	: QMainWindow(parent),
-	mediaPlayer(nullptr),
-	mediaPlaylist(nullptr)
+	mediaPlayer(new QMediaPlayer(this)),
+	mediaPlaylist(new QMediaPlaylist(this))
+	//timerCoverRotate(new QTimer(this))
 {
-	ui.setupUi(this);
-	mediaPlayer = new QMediaPlayer(this);
-	mediaPlaylist = new QMediaPlaylist(this);
-	mediaPlaylist->setPlaybackMode(QMediaPlaylist::Loop); //循环模式
-	mediaPlayer->setPlaylist(mediaPlaylist);
+
 	connect(mediaPlayer, SIGNAL(stateChanged(QMediaPlayer::State)),
 		this, SLOT(onStateChanged(QMediaPlayer::State)));
 
@@ -22,7 +19,20 @@ OnePlayer::OnePlayer(QWidget* parent)
 	connect(mediaPlaylist, SIGNAL(currentIndexChanged(int)),
 		this, SLOT(onPlaylistChanged(int)));
 
+	//connect(timerCoverRotate, SIGNAL(timeout()),
+	//	this, SLOT(onTimerCover()));
+
+	ui.setupUi(this);
+
 	ui.tabWidget->tabBar()->hide();
+
+	mediaPlaylist->setPlaybackMode(QMediaPlaylist::Loop); //循环模式
+	mediaPlayer->setPlaylist(mediaPlaylist);
+
+	//timerCoverRotate->start(100);
+	ui.widgetCover->loadImage(QImage(":/img/testBG"));
+	//ui.widgetCover->setGeometry(100, 100, 300, 300);
+	ui.widgetCover->startRotateAnimation(100, 1);
 }
 
 
@@ -60,19 +70,12 @@ void OnePlayer::onCurrentMediaChanged(const QMediaContent& media) {
 }
 
 
-
 void OnePlayer::onPositionChanged(qint64 position)
 {//当前文件播放位置变化，更新进度显示
 	if (ui.sliderProgress->isSliderDown())
 		return;
 
 	ui.sliderProgress->setSliderPosition(position);//
-
-	//int   secs = position / 1000;//秒
-	//int   mins = secs / 60; //分钟
-	//secs = secs % 60;//余数秒
-	//positionTime = QString::asprintf("%d:%d", mins, secs);
-	//ui.LabRatio->setText(positionTime + "/" + durationTime);
 }
 
 void OnePlayer::on_btnAdd_clicked()

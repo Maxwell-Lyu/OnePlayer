@@ -3,10 +3,14 @@
 #include <QtWidgets/QMainWindow>
 #include <QTabBar>
 #include <QFile>
+#include <QtCore>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 #include <QDebug>
 #include <QFileDialog>
+#include <QPainter>
+#include <QBitmap>
+#include <QSize>
 #include <deque>
 #include "ui_OnePlayer.h"
 
@@ -26,6 +30,7 @@ private slots:
 	void onDurationChanged(qint64 duration);
 	void onPositionChanged(qint64 position);
 	void onCurrentMediaChanged(const QMediaContent& media);
+	//void onTimerCover();
 
 	//
 	void on_btnAdd_clicked();
@@ -43,4 +48,5 @@ private:
 	Ui::OnePlayerClass ui;
 	QMediaPlayer* mediaPlayer;      // 播放器
 	QMediaPlaylist* mediaPlaylist;  // 播放列表
+
 };

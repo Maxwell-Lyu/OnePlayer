@@ -91,11 +91,15 @@
     <QtRcc Include="OnePlayer.qrc" />
     <QtUic Include="OnePlayer.ui" />
     <QtMoc Include="OnePlayer.h" />
+    <ClCompile Include="CoverWidget.cpp" />
     <ClCompile Include="OnePlayer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OnePlayer.qss" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CoverWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
