@@ -48,25 +48,35 @@ void OnePlayer::onStateChanged(QMediaPlayer::State state)
 }
 
 void OnePlayer::onPlaylistChanged(int position)
-{ //播放列表变化,更新当前播放文件名显示
-	ui.listMusic->setCurrentRow(position);
-//	QListWidgetItem *item = ui.listMusic->currentItem();
-
+{ //播放列表变化
+    // 更新列表高亮
+    ui.listMusic->setCurrentRow(position);
+    // 读取文件Tag
 	QFileInfo fileInfo = mediaList.at(position);
-	TagLib::MPEG::File file(fileInfo.filePath().toStdString().c_str());
+    TagLib::MPEG::File file(fileInfo.filePath().toStdString().c_str());
 	TagLib::ID3v2::Tag *id3v2tag = file.ID3v2Tag();
     QImage coverQImg(":/img/coverDefault");
+    QString title(fileInfo.fileName());
+    QString artist;
+    QString album;
 	if (id3v2tag)
-	{
-		qDebug() << id3v2tag->artist().toCString() << endl;
+    {
+        // 专辑封面
 		TagLib::ID3v2::FrameList frameList = id3v2tag->frameList("APIC");
 		if (not frameList.isEmpty())
 		{
             TagLib::ID3v2::AttachedPictureFrame *coverImg = static_cast<TagLib::ID3v2::AttachedPictureFrame *>(frameList.front());
             coverQImg.loadFromData(reinterpret_cast<uchar *>(coverImg->picture().data()), static_cast<int>(coverImg->picture().size()));
 		}
-	}
+        // 歌曲信息
+        title = QString(id3v2tag->title().toCString(true));
+        artist = QString(id3v2tag->artist().toCString(true));
+        album = QString(id3v2tag->album().toCString(true));
+    }
     ui.widgetCover->loadImage(coverQImg);
+    ui.labelSong->setText(title + (artist.isEmpty() ? "" : " - " + artist));
+    ui.labelAlbum->setText(album.isEmpty() ? "" : album);
+    //	QListWidgetItem *item = ui.listMusic->currentItem();
 	//if (item)
 	//	ui.LabCurMedia->setText(item->text());
 }

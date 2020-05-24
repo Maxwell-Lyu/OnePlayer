@@ -55,5 +55,5 @@ private:
 	Ui::OnePlayerClass ui;
 	QMediaPlayer* mediaPlayer;      // 播放器
 	QMediaPlaylist* mediaPlaylist;  // 播放列表
-  QList<QFileInfo> mediaList;
+    QList<QFileInfo> mediaList;     // 文件信息列表
 };

@@ -4,5 +4,6 @@
     </qresource>
     <qresource prefix="/img" lang="testBG">
         <file alias="coverDefault">asset/img/coverDefault.png</file>
+        <file alias="coverPin">asset/img/coverPin.png</file>
     </qresource>
 </RCC>

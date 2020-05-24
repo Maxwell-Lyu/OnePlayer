@@ -50,8 +50,9 @@ void CoverWidget::paintEvent(QPaintEvent* event) {
         painter.drawPixmap(49, 49, width() - 98, height() - 98, backgroundImage);
         QPainter painter2(this);
         painter2.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-        painter2.setPen(QPen(QColor(33, 33, 33), 32));
+        painter2.setPen(QPen(QColor(22, 22, 22), 32));
         painter2.drawEllipse(QRectF(40, 40, 320, 320));
+        painter2.drawPixmap(0, 0, width(), height(), QPixmap::fromImage(QImage(":img/coverPin")));
 	}
 }
 

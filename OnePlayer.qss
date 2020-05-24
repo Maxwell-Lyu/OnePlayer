@@ -6,7 +6,7 @@
 
 QWidget {
     margin: 0px 0px 0px 0px;
-    background: #424242;
+    background: #212121;
 }
 
 QTabWidget::pane {
@@ -15,7 +15,29 @@ QTabWidget::pane {
 }
 
 QLabel {
+    color: white;
+    font-size: 16px;
     background: transparent;
+}
+
+QLabel#labelSong {
+    padding-top: 32px;
+    font-size: 20px;
+    font-weight: bold;
+}
+QLabel#labelAlbum {
+    font-weight: bold;
+}
+QLabel#labelTimePassed, QLabel#labelTimeTotal, QLabel#labelTimeLeft {
+    /* font-weight: bold; */
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+QSlider {
+    
+    padding-left: 88px;
+    padding-right: 88px;
 }
 
 QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyric::checked {

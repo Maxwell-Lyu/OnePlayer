@@ -41,3 +41,6 @@ INCLUDEPATH += $$PWD/.
 DEPENDPATH += $$PWD/.
 
 unix:!macx: PRE_TARGETDEPS += $$PWD/lib/libtag.a
+
+DISTFILES += \
+    OnePlayer.qss
