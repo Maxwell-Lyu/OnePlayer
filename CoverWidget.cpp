@@ -7,7 +7,7 @@
 CoverWidget::CoverWidget(QWidget* parent) : QWidget(parent), rotateAngle(0) {
 }
 
-void CoverWidget::startRotateAnimation(int speedRotate, int deltaAngle) {
+void CoverWidget::startRotateAnimation(qreal speedRotate, qreal deltaAngle) {
 	if (nullptr == timer) {
 		// 通过定时器去旋转图片
 		timer = new QTimer(this);
@@ -35,8 +35,8 @@ void CoverWidget::paintEvent(QPaintEvent* event) {
 		painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 		// 把自身截取为圆形
 		QPainterPath path;
-		int round = qMin(width(), height());
-		path.addEllipse(0, 0, round, round);
+        int round = qMin(width(), height()) - 100;
+        path.addEllipse(50, 50, round, round);
 		painter.setClipPath(path);
 
 		// 设置中心点为起点
@@ -47,7 +47,11 @@ void CoverWidget::paintEvent(QPaintEvent* event) {
 		painter.translate(-centerPosW, -centerPosH);
 
 		// 绘制图片
-		painter.drawPixmap(-1, -1, width() + 2, height() + 2, backgroundImage);
+        painter.drawPixmap(49, 49, width() - 98, height() - 98, backgroundImage);
+        QPainter painter2(this);
+        painter2.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+        painter2.setPen(QPen(QColor(33, 33, 33), 32));
+        painter2.drawEllipse(QRectF(40, 40, 320, 320));
 	}
 }
 

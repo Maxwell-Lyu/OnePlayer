@@ -9,17 +9,19 @@ class CoverWidget : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit CoverWidget(QWidget* parent = nullptr);
-	void startRotateAnimation(int speedRotate, int deltaAngle);
+	explicit CoverWidget(QWidget *parent = nullptr);
+	void startRotateAnimation(qreal speedRotate, qreal deltaAngle);
 	void loadImage(QImage image);
 	void setState(bool state) { running = state; }
+	void resetAngle() { rotateAngle = 0; }
+
 protected:
-	virtual void paintEvent(QPaintEvent* event) override;
+	virtual void paintEvent(QPaintEvent *event) override;
 
 private:
-	int rotateAngle;
+	qreal rotateAngle;
 	QPixmap backgroundImage;
-	QTimer* timer = nullptr;
+	QTimer *timer = nullptr;
 	bool running = false;
 };
 

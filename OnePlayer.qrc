@@ -3,6 +3,6 @@
         <file>OnePlayer.qss</file>
     </qresource>
     <qresource prefix="/img" lang="testBG">
-        <file alias="testBG">asset/img/KOBAYASHI AVA2.png</file>
+        <file alias="coverDefault">asset/img/coverDefault.png</file>
     </qresource>
 </RCC>

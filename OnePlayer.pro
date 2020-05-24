@@ -19,10 +19,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # OBJECTS_DIR += debug
 # UI_DIR += .
 # RCC_DIR += .
-HEADERS += ./OnePlayer.h \
-    ./CoverWidget.h
-SOURCES += ./CoverWidget.cpp \
-    ./OnePlayer.cpp \
-    ./main.cpp
-FORMS += ./OnePlayer.ui
+CONFIG += c++11
+
+HEADERS += \
+    OnePlayer.h \
+    CoverWidget.h
+SOURCES += \
+    CoverWidget.cpp \
+    OnePlayer.cpp \
+    main.cpp
+FORMS += OnePlayer.ui
 RESOURCES += OnePlayer.qrc
+
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+unix:!macx: LIBS += -L$$PWD/lib/ -ltag -lz
+
+INCLUDEPATH += $$PWD/.
+DEPENDPATH += $$PWD/.
+
+unix:!macx: PRE_TARGETDEPS += $$PWD/lib/libtag.a
