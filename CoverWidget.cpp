@@ -13,7 +13,7 @@ void CoverWidget::startRotateAnimation(int speedRotate, int deltaAngle) {
 		timer = new QTimer(this);
 		timer->setInterval(speedRotate);
 		connect(timer, &QTimer::timeout, [=]() {
-			rotateAngle += deltaAngle;
+			if (running)rotateAngle += deltaAngle;
 			if (rotateAngle > 360.0) {
 				rotateAngle = deltaAngle;
 			}

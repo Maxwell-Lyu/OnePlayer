@@ -44,6 +44,7 @@ void OnePlayer::onStateChanged(QMediaPlayer::State state)
 	//ui.btnPlay->setEnabled(!(state == QMediaPlayer::PlayingState));
 	//ui.btnPause->setEnabled(state == QMediaPlayer::PlayingState);
 	ui.btnStop->setEnabled(state == QMediaPlayer::PlayingState);
+	ui.widgetCover->setState(state == QMediaPlayer::PlayingState);
 }
 
 void OnePlayer::onPlaylistChanged(int position)
