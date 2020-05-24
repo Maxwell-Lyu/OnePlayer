@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>559</width>
-    <height>646</height>
+    <width>467</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,19 +52,6 @@
       </attribute>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="btnList">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroupTab</string>
-      </attribute>
-     </widget>
-    </item>
     <item row="0" column="1">
      <widget class="QPushButton" name="btnPlayer">
       <property name="text">
@@ -74,6 +61,19 @@
        <bool>true</bool>
       </property>
       <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroupTab</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QPushButton" name="btnList">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+      <property name="checkable">
        <bool>true</bool>
       </property>
       <attribute name="buttonGroup">
@@ -157,106 +157,6 @@
         <property name="spacing">
          <number>0</number>
         </property>
-        <item row="1" column="0" colspan="5">
-         <widget class="QLabel" name="labelAlbum">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="4">
-         <widget class="QPushButton" name="btnRand">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>64</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>rando</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="2">
-         <widget class="QPushButton" name="btnPlay">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>64</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>pl</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="1">
-         <widget class="QPushButton" name="btnPrev">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>64</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>PR</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0" colspan="5">
-         <widget class="QWidget" name="widget" native="true">
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="CoverWidget" name="widgetCover" native="true">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>400</width>
-               <height>400</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="9" column="0">
-         <widget class="QPushButton" name="btnStop">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>64</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>stop</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" colspan="5">
-         <widget class="QSlider" name="sliderVolume">
-          <property name="tracking">
-           <bool>false</bool>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0" colspan="5">
          <widget class="QLabel" name="labelSong">
           <property name="sizePolicy">
@@ -278,27 +178,101 @@
            </size>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>暂无歌曲</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="8" column="0" colspan="5">
-         <widget class="QSlider" name="sliderProgress">
-          <property name="pageStep">
-           <number>1</number>
+        <item row="8" column="4">
+         <widget class="QLabel" name="labelTimeLeft">
+          <property name="text">
+           <string>-0:00</string>
           </property>
-          <property name="tracking">
-           <bool>false</bool>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
-        <item row="9" column="3">
+        <item row="8" column="1" colspan="3">
+         <widget class="QLabel" name="labelTimeTotal">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>0:00</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0" colspan="5">
+         <layout class="QHBoxLayout" name="hLayout2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>8</number>
+          </property>
+          <property name="rightMargin">
+           <number>8</number>
+          </property>
+          <item>
+           <widget class="QSlider" name="sliderProgress">
+            <property name="pageStep">
+             <number>1</number>
+            </property>
+            <property name="tracking">
+             <bool>false</bool>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="4" column="0" colspan="5">
+         <widget class="QWidget" name="widget" native="true">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="CoverWidget" name="widgetCover" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>400</width>
+               <height>400</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="12" column="2">
+         <widget class="QPushButton" name="btnPlay">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>pl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="3">
          <widget class="QPushButton" name="btnNext">
           <property name="minimumSize">
            <size>
@@ -311,18 +285,21 @@
           </property>
          </widget>
         </item>
-        <item row="7" column="4">
-         <widget class="QLabel" name="labelTimeLeft">
-          <property name="text">
-           <string>TextLabel</string>
+        <item row="12" column="1">
+         <widget class="QPushButton" name="btnPrev">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          <property name="text">
+           <string>PR</string>
           </property>
          </widget>
         </item>
-        <item row="7" column="1" colspan="3">
-         <widget class="QLabel" name="labelTimeTotal">
+        <item row="1" column="0" colspan="5">
+         <widget class="QLabel" name="labelAlbum">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -330,19 +307,59 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
-        <item row="7" column="0">
-         <widget class="QLabel" name="labelTimePassed">
+        <item row="12" column="4">
+         <widget class="QPushButton" name="btnRand">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
           <property name="text">
-           <string>TextLabel</string>
+           <string>rando</string>
           </property>
          </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="labelTimePassed">
+          <property name="text">
+           <string>0:00</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QPushButton" name="btnStop">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>stop</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1" colspan="3">
+         <layout class="QHBoxLayout" name="hLayout1">
+          <item>
+           <widget class="QSlider" name="sliderVolume">
+            <property name="tracking">
+             <bool>false</bool>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -398,7 +415,6 @@
   <tabstop>btnPlayer</tabstop>
   <tabstop>btnLyric</tabstop>
   <tabstop>tabWidget</tabstop>
-  <tabstop>sliderProgress</tabstop>
   <tabstop>btnStop</tabstop>
   <tabstop>btnPrev</tabstop>
   <tabstop>btnPlay</tabstop>
