@@ -76,20 +76,18 @@ void OnePlayer::onPlaylistChanged(int position)
     ui.widgetCover->loadImage(coverQImg);
     ui.labelSong->setText(title + (artist.isEmpty() ? "" : " - " + artist));
     ui.labelAlbum->setText(album.isEmpty() ? "" : album);
-    //	QListWidgetItem *item = ui.listMusic->currentItem();
-	//if (item)
-	//	ui.LabCurMedia->setText(item->text());
 }
 
 void OnePlayer::onDurationChanged(qint64 duration)
 { //文件时长变化，更新进度显示
-	ui.sliderProgress->setMaximum(duration);
+    ui.sliderProgress->setMaximum(duration);
+    ui.sliderProgress->setValue(0);
 
-	//int   secs = duration / 1000;//秒
-	//int   mins = secs / 60; //分钟
-	//secs = secs % 60;//余数秒
-	//durationTime = QString::asprintf("%d:%d", mins, secs);
-	//ui.LabRatio->setText(positionTime + "/" + durationTime);
+    int   secs = duration / 1000;//秒
+    int   mins = secs / 60; //分钟
+    secs = secs % 60;//余数秒
+    QString durationTime = QString::asprintf("%d:%02d", mins, secs);
+    ui.labelTimeTotal->setText(durationTime);
 }
 
 void OnePlayer::onPositionChanged(qint64 position)
@@ -97,7 +95,17 @@ void OnePlayer::onPositionChanged(qint64 position)
 	if (ui.sliderProgress->isSliderDown())
 		return;
 
-	ui.sliderProgress->setSliderPosition(position); //
+    ui.sliderProgress->setSliderPosition(position);
+    int   secs = position / 1000;//秒
+    int   mins = secs / 60; //分钟
+    secs = secs % 60;//余数秒
+    QString durationTime = QString::asprintf("%d:%02d", mins, secs);
+    ui.labelTimePassed->setText(durationTime);
+    secs = (mediaPlayer->duration() - position) / 1000;//秒
+    mins = secs / 60; //分钟
+    secs = secs % 60;//余数秒
+    durationTime = QString::asprintf("-%d:%02d", mins, secs);
+    ui.labelTimeLeft->setText(durationTime);
 }
 
 void OnePlayer::on_btnAdd_clicked()
