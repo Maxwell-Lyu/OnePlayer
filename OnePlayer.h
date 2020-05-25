@@ -30,7 +30,7 @@ private slots:
     //自定义槽函数
 	void onStateChanged(QMediaPlayer::State state);
 	void onPlaylistChanged(int position);
-	void onDurationChanged(qint64 duration);
+    void onDurationChanged(qint64 duration);
     void onPositionChanged(qint64 position);
 
     // 内部命名槽函数

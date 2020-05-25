@@ -387,11 +387,7 @@
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>LYRIC</string>
-          </property>
-         </widget>
+         <widget class="LyricWidget" name="widgetLyric" native="true"/>
         </item>
        </layout>
       </widget>
@@ -410,6 +406,12 @@
    <class>CoverWidget</class>
    <extends>QWidget</extends>
    <header>CoverWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LyricWidget</class>
+   <extends>QWidget</extends>
+   <header>LyricWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

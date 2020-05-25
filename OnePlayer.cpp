@@ -5,6 +5,7 @@
 #include <taglib/id3v2frame.h>
 #include <taglib/mpegfile.h>
 #include <taglib/attachedpictureframe.h>
+#include "LyricWidget.h"
 OnePlayer::OnePlayer(QWidget *parent)
 		: QMainWindow(parent),
 			mediaPlayer(new QMediaPlayer(this)),
@@ -37,6 +38,8 @@ OnePlayer::OnePlayer(QWidget *parent)
     ui.widgetCover->loadImage(QImage(":/img/coverDefault"));
 	//ui.widgetCover->setGeometry(100, 100, 300, 300);
 	ui.widgetCover->startRotateAnimation(50, 0.5);
+
+
 }
 
 void OnePlayer::onStateChanged(QMediaPlayer::State state)
@@ -80,10 +83,10 @@ void OnePlayer::onPlaylistChanged(int position)
 
 void OnePlayer::onDurationChanged(qint64 duration)
 { //文件时长变化，更新进度显示
-    ui.sliderProgress->setMaximum(duration);
+    ui.sliderProgress->setMaximum(static_cast<int>(duration));
     ui.sliderProgress->setValue(0);
 
-    int   secs = duration / 1000;//秒
+    int   secs = static_cast<int>(duration) / 1000;//秒
     int   mins = secs / 60; //分钟
     secs = secs % 60;//余数秒
     QString durationTime = QString::asprintf("%d:%02d", mins, secs);
@@ -93,15 +96,14 @@ void OnePlayer::onDurationChanged(qint64 duration)
 void OnePlayer::onPositionChanged(qint64 position)
 { //当前文件播放位置变化，更新进度显示
 	if (ui.sliderProgress->isSliderDown())
-		return;
-
-    ui.sliderProgress->setSliderPosition(position);
-    int   secs = position / 1000;//秒
+        return;
+    ui.sliderProgress->setSliderPosition(static_cast<int>(position));
+    int   secs = static_cast<int>(position) / 1000;//秒
     int   mins = secs / 60; //分钟
     secs = secs % 60;//余数秒
     QString durationTime = QString::asprintf("%d:%02d", mins, secs);
     ui.labelTimePassed->setText(durationTime);
-    secs = (mediaPlayer->duration() - position) / 1000;//秒
+    secs = (static_cast<int>(mediaPlayer->duration() - position)) / 1000;//秒
     mins = secs / 60; //分钟
     secs = secs % 60;//余数秒
     durationTime = QString::asprintf("-%d:%02d", mins, secs);
@@ -215,4 +217,5 @@ void OnePlayer::on_btnNext_clicked()
 
 void OnePlayer::on_btnList_clicked() { ui.tabWidget->setCurrentIndex(0); }
 void OnePlayer::on_btnPlayer_clicked() { ui.tabWidget->setCurrentIndex(1); }
-void OnePlayer::on_btnLyric_clicked() { ui.tabWidget->setCurrentIndex(2); }
+void OnePlayer::on_btnLyric_clicked() { ui.tabWidget->setCurrentIndex(2);
+                                        ui.widgetLyric->loadFile(QString("/home/maxwell/Desktop/OnePlayer/test.lrc")); }

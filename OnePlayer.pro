@@ -23,11 +23,13 @@ CONFIG += c++11
 
 HEADERS += \
     OnePlayer.h \
-    CoverWidget.h
+    CoverWidget.h \
+    LyricWidget.h
 SOURCES += \
     CoverWidget.cpp \
     OnePlayer.cpp \
-    main.cpp
+    main.cpp \
+    LyricWidget.cpp
 FORMS += OnePlayer.ui
 RESOURCES += OnePlayer.qrc
 

@@ -1,5 +1,5 @@
-﻿#ifndef CoverWidget_H
-#define CoverWidget_H
+﻿#ifndef COVERWIDGET_H
+#define COVERWIDGET_H
 
 #include <QWidget>
 
