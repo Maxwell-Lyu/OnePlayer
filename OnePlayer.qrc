@@ -2,8 +2,16 @@
     <qresource prefix="/style">
         <file>OnePlayer.qss</file>
     </qresource>
-    <qresource prefix="/img" lang="testBG">
+    <qresource prefix="/img">
         <file alias="coverDefault">asset/img/coverDefault.png</file>
         <file alias="coverPin">asset/img/coverPin.png</file>
+    </qresource>
+    <qresource prefix="/btnPanel">
+        <file alias="default">asset/img/btnPanel/default.png</file>
+        <file alias="default_checked">asset/img/btnPanel/default_checked.png</file>
+        <file alias="hover">asset/img/btnPanel/hover.png</file>
+        <file alias="hover_checked">asset/img/btnPanel/hover_checked.png</file>
+        <file alias="pressed">asset/img/btnPanel/pressed.png</file>
+        <file alias="pressed_checked">asset/img/btnPanel/pressed_checked.png</file>
     </qresource>
 </RCC>

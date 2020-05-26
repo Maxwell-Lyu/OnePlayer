@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>422</width>
-    <height>867</height>
+    <height>651</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -72,7 +72,7 @@
           <bool>false</bool>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tabList">
           <attribute name="title">
@@ -94,22 +94,29 @@
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="0" column="0">
+           <item row="1" column="0" colspan="3">
+            <widget class="QListWidget" name="listMusic"/>
+           </item>
+           <item row="2" column="0">
             <widget class="QPushButton" name="btnAdd">
              <property name="text">
               <string>add</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="btnRemove">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="btnClear">
              <property name="text">
               <string>PushButton</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QListWidget" name="listMusic"/>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="btnRemove">
+             <property name="text">
+              <string>PushButton</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -361,7 +368,10 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <property name="spacing">
+       <property name="horizontalSpacing">
+        <number>2</number>
+       </property>
+       <property name="verticalSpacing">
         <number>0</number>
        </property>
        <item row="4" column="4">
@@ -369,11 +379,14 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>64</height>
+           <height>72</height>
           </size>
          </property>
          <property name="text">
           <string>rando</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -382,7 +395,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>64</height>
+           <height>72</height>
           </size>
          </property>
          <property name="text">
@@ -402,7 +415,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>64</height>
+           <height>72</height>
           </size>
          </property>
          <property name="text">
@@ -415,7 +428,7 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>64</height>
+           <height>72</height>
           </size>
          </property>
          <property name="text">
@@ -428,11 +441,14 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>64</height>
+           <height>72</height>
           </size>
          </property>
          <property name="text">
           <string>pl</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

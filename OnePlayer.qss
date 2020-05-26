@@ -43,3 +43,25 @@ QLabel#labelTimePassed, QLabel#labelTimeTotal, QLabel#labelTimeLeft {
 QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyric::checked {
     background: #1e88e5;
 }
+
+
+#panelWidget QPushButton {
+    border-width: 8px 0 0 0;
+    border-image: url(:btnPanel/default) 8 stretch;
+}
+#panelWidget QPushButton:hover {
+    border-image: url(:btnPanel/hover) 8 stretch;
+}
+#panelWidget QPushButton:pressed {
+    border-image: url(:btnPanel/pressed) 8 stretch;
+}
+#panelWidget QPushButton:checked {
+    border-width: 8px 0 0 0;
+    border-image: url(:btnPanel/default_checked) 8 stretch;
+}
+#panelWidget QPushButton:hover:checked {
+    border-image: url(:btnPanel/hover_checked) 8 stretch;
+}
+#panelWidget QPushButton:pressed:checked {
+    border-image: url(:btnPanel/pressed_checked) 8 stretch;
+}
