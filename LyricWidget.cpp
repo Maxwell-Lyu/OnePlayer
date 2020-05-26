@@ -117,6 +117,9 @@ void LyricWidget::paintLine(QPainter &painter, int index, const QRect &rt) {
 
 bool LyricWidget::loadFile(QString path) {
     lyric.clear();
+    album = artist = author = by = re = title = ve = "";
+    currentIndex = bias = 0;
+    position = duration = 0;
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text))
         return false;
