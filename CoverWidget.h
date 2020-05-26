@@ -2,7 +2,7 @@
 #define COVERWIDGET_H
 
 #include <QWidget>
-
+#include <QtCore>
 class QTimer;
 
 class CoverWidget : public QWidget
@@ -11,8 +11,8 @@ class CoverWidget : public QWidget
 public:
 	explicit CoverWidget(QWidget *parent = nullptr);
 	void startRotateAnimation(qreal speedRotate, qreal deltaAngle);
-	void loadImage(QImage image);
-	void setState(bool state) { running = state; }
+    void loadImage(QImage image);
+    void setState(bool state) { state ? timer->start() : timer->stop(); }
 	void resetAngle() { rotateAngle = 0; }
 
 protected:
@@ -21,8 +21,7 @@ protected:
 private:
 	qreal rotateAngle;
 	QPixmap backgroundImage;
-	QTimer *timer = nullptr;
-	bool running = false;
+    QTimer *timer = nullptr;
 };
 
 #endif // CoverWidget_H

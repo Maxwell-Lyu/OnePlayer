@@ -13,14 +13,13 @@ void CoverWidget::startRotateAnimation(qreal speedRotate, qreal deltaAngle) {
 		timer = new QTimer(this);
 		timer->setInterval(speedRotate);
 		connect(timer, &QTimer::timeout, [=]() {
-			if (running)rotateAngle += deltaAngle;
+            rotateAngle += deltaAngle;
 			if (rotateAngle > 360.0) {
 				rotateAngle = deltaAngle;
 			}
 			repaint();
 			});
 	}
-	timer->start();
 }
 
 void CoverWidget::paintEvent(QPaintEvent* event) {
