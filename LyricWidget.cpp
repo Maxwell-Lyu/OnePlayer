@@ -20,15 +20,18 @@ LyricWidget::LyricWidget(QWidget* parent)
 void LyricWidget::paintEvent(QPaintEvent* event) {
     if(not duration) return;
     // 对currentIndex进行位移, 找到合适的句子
+    int index = currentIndex;
     while(currentIndex > 0
           and lyric[currentIndex].time > position)
         --currentIndex;
     while(currentIndex < lyric.size() - 1
           and lyric[currentIndex + 1].time <= position)
         ++currentIndex;
+    if(index != currentIndex) bias = lineHeight;
+    if(bias) --bias;
     int areaTop = 0;
     int areaBottom = height()-lineHeight;
-    int areaMiddle = areaBottom / 2;
+    int areaMiddle = areaBottom / 2 + bias;
     QPainter p(this);
 //    p.save();
     // 绘制动画歌词

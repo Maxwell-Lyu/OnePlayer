@@ -30,6 +30,9 @@ private:
     qint64 position = 0;
     // 总时长
     qint64 duration = 0;
+    // 移动效果的控制
+    int bias = 0;
+
 
     // 计时控制动画
     QTimer *timer;

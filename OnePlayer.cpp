@@ -223,7 +223,4 @@ void OnePlayer::on_btnNext_clicked()
 
 void OnePlayer::on_btnList_clicked() { ui.tabWidget->setCurrentIndex(0); }
 void OnePlayer::on_btnPlayer_clicked() { ui.tabWidget->setCurrentIndex(1); }
-void OnePlayer::on_btnLyric_clicked() { ui.tabWidget->setCurrentIndex(2);
-                                        ui.widgetLyric->loadFile(QString("/home/maxwell/Desktop/OnePlayer/test.lrc"));
-                                        ui.widgetLyric->setDuration(451000);
-                                      }
+void OnePlayer::on_btnLyric_clicked() { ui.tabWidget->setCurrentIndex(2); }
