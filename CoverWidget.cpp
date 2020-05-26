@@ -11,7 +11,7 @@ void CoverWidget::startRotateAnimation(qreal speedRotate, qreal deltaAngle) {
 	if (nullptr == timer) {
 		// 通过定时器去旋转图片
 		timer = new QTimer(this);
-		timer->setInterval(speedRotate);
+        timer->setInterval(static_cast<int>(round(speedRotate)));
 		connect(timer, &QTimer::timeout, [=]() {
             rotateAngle += deltaAngle;
 			if (rotateAngle > 360.0) {

@@ -9,8 +9,7 @@
 OnePlayer::OnePlayer(QWidget *parent)
 		: QMainWindow(parent),
 			mediaPlayer(new QMediaPlayer(this)),
-			mediaPlaylist(new QMediaPlaylist(this))
-//timerCoverRotate(new QTimer(this))
+            mediaPlaylist(new QMediaPlaylist(this))
 {
 
 	connect(mediaPlayer, SIGNAL(stateChanged(QMediaPlayer::State)),
@@ -55,7 +54,7 @@ void OnePlayer::onPlaylistChanged(int position)
     // 更新列表高亮
     ui.listMusic->setCurrentRow(position);
     // 读取文件Tag
-	QFileInfo fileInfo = mediaList.at(position);
+    QFileInfo fileInfo = mediaList.at(position);
     TagLib::MPEG::File file(fileInfo.filePath().toStdString().c_str());
 	TagLib::ID3v2::Tag *id3v2tag = file.ID3v2Tag();
     QImage coverQImg(":/img/coverDefault");
@@ -79,18 +78,22 @@ void OnePlayer::onPlaylistChanged(int position)
     ui.widgetCover->loadImage(coverQImg);
     ui.labelSong->setText(title + (artist.isEmpty() ? "" : " - " + artist));
     ui.labelAlbum->setText(album.isEmpty() ? "" : album);
+
+    ui.widgetLyric->loadFile(QString("/home/maxwell/Desktop/OnePlayer/test.lrc"));
 }
 
 void OnePlayer::onDurationChanged(qint64 duration)
 { //文件时长变化，更新进度显示
     ui.sliderProgress->setMaximum(static_cast<int>(duration));
     ui.sliderProgress->setValue(0);
-
+    ui.widgetLyric->setDuration(duration);
     int   secs = static_cast<int>(duration) / 1000;//秒
     int   mins = secs / 60; //分钟
     secs = secs % 60;//余数秒
     QString durationTime = QString::asprintf("%d:%02d", mins, secs);
     ui.labelTimeTotal->setText(durationTime);
+
+    ui.widgetLyric->setDuration(duration);
 }
 
 void OnePlayer::onPositionChanged(qint64 position)
@@ -108,6 +111,7 @@ void OnePlayer::onPositionChanged(qint64 position)
     secs = secs % 60;//余数秒
     durationTime = QString::asprintf("-%d:%02d", mins, secs);
     ui.labelTimeLeft->setText(durationTime);
+    ui.widgetLyric->setPosition(position);
 }
 
 void OnePlayer::on_btnAdd_clicked()
@@ -132,19 +136,21 @@ void OnePlayer::on_btnAdd_clicked()
 	}
 
 	if (mediaPlayer->state() != QMediaPlayer::PlayingState)
-		mediaPlaylist->setCurrentIndex(0);
-	//mediaPlayer->play();
+        mediaPlaylist->setCurrentIndex(0);
 }
 
 void OnePlayer::on_btnPlay_clicked()
 { //播放
-	if (mediaPlayer->state() == QMediaPlayer::PlayingState)
+    if (mediaPlayer->state() == QMediaPlayer::PlayingState) {
 		mediaPlayer->pause();
-	else
+        ui.widgetLyric->stop();
+    }
+    else
 	{
 		if (mediaPlaylist->currentIndex() < 0)
 			mediaPlaylist->setCurrentIndex(0);
 		mediaPlayer->play();
+        ui.widgetLyric->start();
 	}
 }
 
@@ -218,4 +224,6 @@ void OnePlayer::on_btnNext_clicked()
 void OnePlayer::on_btnList_clicked() { ui.tabWidget->setCurrentIndex(0); }
 void OnePlayer::on_btnPlayer_clicked() { ui.tabWidget->setCurrentIndex(1); }
 void OnePlayer::on_btnLyric_clicked() { ui.tabWidget->setCurrentIndex(2);
-                                        ui.widgetLyric->loadFile(QString("/home/maxwell/Desktop/OnePlayer/test.lrc")); }
+                                        ui.widgetLyric->loadFile(QString("/home/maxwell/Desktop/OnePlayer/test.lrc"));
+                                        ui.widgetLyric->setDuration(451000);
+                                      }
