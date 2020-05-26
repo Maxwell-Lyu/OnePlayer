@@ -72,7 +72,7 @@
           <bool>false</bool>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="tabList">
           <attribute name="title">
@@ -261,22 +261,41 @@
           </attribute>
           <layout class="QGridLayout" name="gridLayoutLyric">
            <property name="leftMargin">
-            <number>0</number>
+            <number>8</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>8</number>
            </property>
            <property name="rightMargin">
-            <number>0</number>
+            <number>8</number>
            </property>
            <property name="bottomMargin">
+            <number>8</number>
+           </property>
+           <property name="horizontalSpacing">
             <number>0</number>
            </property>
-           <property name="spacing">
-            <number>0</number>
+           <property name="verticalSpacing">
+            <number>8</number>
            </property>
-           <item row="0" column="0">
+           <item row="1" column="0">
             <widget class="LyricWidget" name="widgetLyric" native="true"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelTitle">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>暂无歌曲</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

@@ -58,7 +58,7 @@ void OnePlayer::onPlaylistChanged(int position)
     TagLib::MPEG::File file(fileInfo.filePath().toStdString().c_str());
 	TagLib::ID3v2::Tag *id3v2tag = file.ID3v2Tag();
     QImage coverQImg(":/img/coverDefault");
-    QString title(fileInfo.fileName());
+    QString title;
     QString artist;
     QString album;
 	if (id3v2tag)
@@ -75,11 +75,14 @@ void OnePlayer::onPlaylistChanged(int position)
         artist = QString(id3v2tag->artist().toCString(true));
         album = QString(id3v2tag->album().toCString(true));
     }
+    if(title.isEmpty()) title = fileInfo.baseName();
     ui.widgetCover->loadImage(coverQImg);
+    ui.labelTitle->setText(title);
     ui.labelSong->setText(title + (artist.isEmpty() ? "" : " - " + artist));
     ui.labelAlbum->setText(album.isEmpty() ? "" : album);
-
-    ui.widgetLyric->loadFile(QString("/home/maxwell/Desktop/OnePlayer/test.lrc"));
+    QString lrcPath = fileInfo.filePath();
+    lrcPath.truncate(lrcPath.lastIndexOf('.'));
+    ui.widgetLyric->loadFile(lrcPath + ".lrc");
 }
 
 void OnePlayer::onDurationChanged(qint64 duration)
@@ -112,6 +115,7 @@ void OnePlayer::onPositionChanged(qint64 position)
     durationTime = QString::asprintf("-%d:%02d", mins, secs);
     ui.labelTimeLeft->setText(durationTime);
     ui.widgetLyric->setPosition(position);
+    ui.widgetLyric->repaint();
 }
 
 void OnePlayer::on_btnAdd_clicked()
