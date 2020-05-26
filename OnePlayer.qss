@@ -16,13 +16,13 @@ QTabWidget::pane {
 
 QLabel {
     color: white;
-    font-size: 16px;
+    font-size: 12pt;
     background: transparent;
 }
 
 QLabel#labelSong {
     padding-top: 32px;
-    font-size: 20px;
+    font-size: 16pt;
     font-weight: bold;
 }
 QLabel#labelAlbum {
