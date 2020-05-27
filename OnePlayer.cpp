@@ -25,6 +25,11 @@ OnePlayer::OnePlayer(QWidget *parent)
 					this, SLOT(onPlaylistChanged(int)));
 
     connect(mediaPlayer, &QMediaPlayer::currentMediaChanged, this, [&]() { ui.widgetCover->resetAngle(); });
+    connect(mediaPlayer, &QMediaPlayer::stateChanged, this, [&](QMediaPlayer::State state) {
+        ui.btnPlay->setCheckable(state == QMediaPlayer::PlayingState);
+        ui.btnPlay->setChecked(state == QMediaPlayer::PlayingState);
+        ui.widgetCover->setState(state == QMediaPlayer::PlayingState);
+    });
 
 	ui.setupUi(this);
 

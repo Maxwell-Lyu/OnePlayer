@@ -6,12 +6,29 @@
         <file alias="coverDefault">asset/img/coverDefault.png</file>
         <file alias="coverPin">asset/img/coverPin.png</file>
     </qresource>
-    <qresource prefix="/btnPanel">
-        <file alias="default">asset/img/btnPanel/default.png</file>
-        <file alias="default_checked">asset/img/btnPanel/default_checked.png</file>
-        <file alias="hover">asset/img/btnPanel/hover.png</file>
-        <file alias="hover_checked">asset/img/btnPanel/hover_checked.png</file>
-        <file alias="pressed">asset/img/btnPanel/pressed.png</file>
-        <file alias="pressed_checked">asset/img/btnPanel/pressed_checked.png</file>
+    <qresource prefix="/btn">
+        <file alias="default">asset/img/btn/default.png</file>
+        <file alias="default_checked">asset/img/btn/default_checked.png</file>
+        <file alias="hover">asset/img/btn/hover.png</file>
+        <file alias="hover_checked">asset/img/btn/hover_checked.png</file>
+        <file alias="pressed">asset/img/btn/pressed.png</file>
+        <file alias="pressed_checked">asset/img/btn/pressed_checked.png</file>
+        <file alias="default_fill">asset/img/btn/default_fill.png</file>
+        <file alias="hover_fill">asset/img/btn/hover_fill.png</file>
+        <file alias="pressed_fill">asset/img/btn/pressed_fill.png</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file alias="list">asset/icon/bars.svg</file>
+        <file alias="lyric">asset/icon/bookmark.svg</file>
+        <file alias="stop">asset/icon/eject.svg</file>
+        <file alias="prev">asset/icon/left.svg</file>
+        <file alias="remove">asset/icon/minus.svg</file>
+        <file alias="pause">asset/icon/pause.svg</file>
+        <file alias="play">asset/icon/play.svg</file>
+        <file alias="player">asset/icon/play-circle.svg</file>
+        <file alias="add">asset/icon/plus.svg</file>
+        <file alias="random">asset/icon/random.svg</file>
+        <file alias="clear">asset/icon/remove.svg</file>
+        <file alias="next">asset/icon/right.svg</file>
     </qresource>
 </RCC>

@@ -4,13 +4,14 @@
     background: #212121;
 }
 
-QWidget {
+#tabWidget>QWidget {
     margin: 0px 0px 0px 0px;
-    background: #212121;
+    background: transparent;
 }
 
 QTabWidget::pane {
     /* 解决令人发指的问题, 右/下白边 */
+    background: qlineargradient(spread:pad,x1:0,y1:1,x2:0,y2:0,stop:0 #212121,stop:1 #323232);
     border: none;
 }
 
@@ -47,21 +48,40 @@ QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyri
 
 #panelWidget QPushButton {
     border-width: 8px 0 0 0;
-    border-image: url(:btnPanel/default) 8 stretch;
+    border-image: url(:btn/default) 8 stretch;
 }
 #panelWidget QPushButton:hover {
-    border-image: url(:btnPanel/hover) 8 stretch;
+    border-image: url(:btn/hover) 8 stretch;
 }
 #panelWidget QPushButton:pressed {
-    border-image: url(:btnPanel/pressed) 8 stretch;
+    border-image: url(:btn/pressed) 8 stretch;
 }
 #panelWidget QPushButton:checked {
-    border-width: 8px 0 0 0;
-    border-image: url(:btnPanel/default_checked) 8 stretch;
+    border-image: url(:btn/default_checked) 8 stretch;
 }
 #panelWidget QPushButton:hover:checked {
-    border-image: url(:btnPanel/hover_checked) 8 stretch;
+    border-image: url(:btn/hover_checked) 8 stretch;
 }
 #panelWidget QPushButton:pressed:checked {
-    border-image: url(:btnPanel/pressed_checked) 8 stretch;
+    border-image: url(:btn/pressed_checked) 8 stretch;
+}
+
+#tabButton QPushButton {
+    border-width: 8px 0 0 0;
+    border-image: url(:btn/default_fill) 8 stretch;
+}
+#tabButton QPushButton:hover {
+    border-image: url(:btn/hover_fill) 8 stretch;
+}
+#tabButton QPushButton:pressed {
+    border-image: url(:btn/pressed_fill) 8 stretch;
+}
+#tabButton QPushButton:checked {
+    border-image: url(:btn/default) 8 stretch;
+}
+#tabButton QPushButton:hover:checked {
+    border-image: url(:btn/hover) 8 stretch;
+}
+#tabButton QPushButton:pressed:checked {
+    border-image: url(:btn/pressed) 8 stretch;
 }

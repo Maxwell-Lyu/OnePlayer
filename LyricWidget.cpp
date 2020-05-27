@@ -18,32 +18,53 @@ LyricWidget::LyricWidget(QWidget* parent)
 
 
 void LyricWidget::paintEvent(QPaintEvent* event) {
-    if(not duration) return;
-    // 对currentIndex进行位移, 找到合适的句子
-    int index = currentIndex;
-    while(currentIndex > 0
-          and lyric[currentIndex].time > position)
-        --currentIndex;
-    while(currentIndex < lyric.size() - 1
-          and lyric[currentIndex + 1].time <= position)
-        ++currentIndex;
-    if(index != currentIndex) bias = lineHeight;
-    if(bias) --bias;
-    int areaTop = 0;
-    int areaBottom = height()-lineHeight;
-    int areaMiddle = areaBottom / 2 + bias;
-    QPainter p(this);
-//    p.save();
-    // 绘制动画歌词
-    paintLine(p, currentIndex, QRect(0, areaMiddle, width(), lineHeight));
-//    p.restore();
-    // 绘制前后的歌词
-    int tmpIndex = currentIndex;
-    for (int y = areaMiddle - lineHeight; y > 0; y -= lineHeight)
-        paintLine(p, --tmpIndex, QRect(0, y, width(), lineHeight));
-    tmpIndex = currentIndex;
-    for (int y = areaMiddle + lineHeight; y < height() - lineHeight; y += lineHeight)
-        paintLine(p, ++tmpIndex, QRect(0, y, width(), lineHeight));
+    if(not duration or not lyric.length()) {
+        int areaBottom = height()-lineHeight;
+        int areaMiddle = areaBottom / 2 + bias;
+        QPainter p(this);
+        // 绘制无歌词消息
+        QString strLyric = "没有找到歌词";
+        QPainter pTmp;
+        QFont m_ftLyric(QString::fromLocal8Bit("微软雅黑"), 10, QFont::Bold);QFontMetrics fm(m_ftLyric);
+        QSize textSize = fm.size(Qt::TextSingleLine, strLyric);
+        QRect rtText(QPoint(0, 0), textSize), rt(0, areaMiddle, width(), lineHeight);
+        // 文字
+        QImage pmMask(rtText.width(), rtText.height(), QImage::Format_ARGB32);
+        pmMask.fill(Qt::transparent);
+        if (pTmp.begin(&pmMask))
+        {
+            pTmp.setFont(m_ftLyric);
+            pTmp.setPen(QColor(128,128,128));
+            pTmp.drawText(pmMask.rect(), strLyric);
+        }
+        pTmp.end();
+        // 绘制到画布
+        p.drawImage(rt.left() + (rt.width() - rtText.width()) / 2, rt.top() +  (rt.height() - rtText.height()) / 2, pmMask);
+    }
+    else {
+        // 对currentIndex进行位移, 找到合适的句子
+        int index = currentIndex;
+        while(currentIndex > 0
+              and lyric[currentIndex].time > position)
+            --currentIndex;
+        while(currentIndex < lyric.size() - 1
+              and lyric[currentIndex + 1].time <= position)
+            ++currentIndex;
+        if(index != currentIndex) bias = lineHeight;
+        if(bias) --bias;
+        int areaBottom = height()-lineHeight;
+        int areaMiddle = areaBottom / 2 + bias;
+        QPainter p(this);
+        // 绘制动画歌词
+        paintLine(p, currentIndex, QRect(0, areaMiddle, width(), lineHeight));
+        // 绘制前后的歌词
+        int tmpIndex = currentIndex;
+        for (int y = areaMiddle - lineHeight; y > 0; y -= lineHeight)
+            paintLine(p, --tmpIndex, QRect(0, y, width(), lineHeight));
+        tmpIndex = currentIndex;
+        for (int y = areaMiddle + lineHeight; y < height() - lineHeight; y += lineHeight)
+            paintLine(p, ++tmpIndex, QRect(0, y, width(), lineHeight));
+    }
     QWidget::paintEvent(event);
 }
 
