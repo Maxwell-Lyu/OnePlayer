@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>422</width>
-    <height>677</height>
+    <height>685</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -57,6 +57,117 @@
        <property name="spacing">
         <number>0</number>
        </property>
+       <item row="1" column="0" colspan="4">
+        <widget class="QWidget" name="tabButton" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>1</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnList">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>48</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="OnePlayer.qrc">
+              <normaloff>:/icon/lyric</normaloff>:/icon/lyric</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroupTab</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnPlayer">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>48</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="OnePlayer.qrc">
+              <normaloff>:/icon/player</normaloff>:/icon/player</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroupTab</string>
+            </attribute>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnLyric">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>48</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="OnePlayer.qrc">
+              <normaloff>:/icon/list</normaloff>:/icon/list</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <attribute name="buttonGroup">
+             <string notr="true">buttonGroupTab</string>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="2" column="0" colspan="4">
         <widget class="QTabWidget" name="tabWidget">
          <property name="sizePolicy">
@@ -72,7 +183,7 @@
           <bool>false</bool>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tabList">
           <attribute name="title">
@@ -91,32 +202,83 @@
            <property name="bottomMargin">
             <number>0</number>
            </property>
-           <property name="spacing">
+           <property name="horizontalSpacing">
+            <number>1</number>
+           </property>
+           <property name="verticalSpacing">
             <number>0</number>
            </property>
-           <item row="1" column="0" colspan="3">
-            <widget class="QListWidget" name="listMusic"/>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="btnRemove">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>48</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="OnePlayer.qrc">
+               <normaloff>:/icon/remove</normaloff>:/icon/remove</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+            </widget>
            </item>
            <item row="2" column="0">
             <widget class="QPushButton" name="btnAdd">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>48</height>
+              </size>
+             </property>
              <property name="text">
-              <string>add</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="OnePlayer.qrc">
+               <normaloff>:/icon/add</normaloff>:/icon/add</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
             <widget class="QPushButton" name="btnClear">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>48</height>
+              </size>
+             </property>
              <property name="text">
-              <string>PushButton</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="OnePlayer.qrc">
+               <normaloff>:/icon/clear</normaloff>:/icon/clear</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
              </property>
             </widget>
            </item>
-           <item row="2" column="2">
-            <widget class="QPushButton" name="btnRemove">
-             <property name="text">
-              <string>PushButton</string>
-             </property>
-            </widget>
+           <item row="3" column="0" colspan="3">
+            <widget class="QListWidget" name="listMusic"/>
            </item>
           </layout>
          </widget>
@@ -308,117 +470,6 @@
          </widget>
         </widget>
        </item>
-       <item row="1" column="0" colspan="4">
-        <widget class="QWidget" name="tabButton" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>1</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="btnList">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>48</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="OnePlayer.qrc">
-              <normaloff>:/icon/lyric</normaloff>:/icon/lyric</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroupTab</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnPlayer">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>48</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="OnePlayer.qrc">
-              <normaloff>:/icon/player</normaloff>:/icon/player</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroupTab</string>
-            </attribute>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnLyric">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>48</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="OnePlayer.qrc">
-              <normaloff>:/icon/list</normaloff>:/icon/list</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>20</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-            <attribute name="buttonGroup">
-             <string notr="true">buttonGroupTab</string>
-            </attribute>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
       </layout>
      </widget>
     </item>
@@ -441,7 +492,7 @@
         <number>1</number>
        </property>
        <property name="verticalSpacing">
-        <number>0</number>
+        <number>4</number>
        </property>
        <item row="4" column="4">
         <widget class="QPushButton" name="btnRand">
