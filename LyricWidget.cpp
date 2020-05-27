@@ -141,6 +141,7 @@ bool LyricWidget::loadFile(QString path) {
     album = artist = author = by = re = title = ve = "";
     currentIndex = bias = 0;
     position = duration = 0;
+    if(path.isEmpty()) return false;
     QFile file(path);
     if (!file.open(QFile::ReadOnly | QFile::Text))
         return false;

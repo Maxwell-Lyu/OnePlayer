@@ -30,6 +30,10 @@ OnePlayer::OnePlayer(QWidget *parent)
         ui.btnPlay->setChecked(state == QMediaPlayer::PlayingState);
         ui.widgetCover->setState(state == QMediaPlayer::PlayingState);
     });
+    connect(mediaPlaylist, &QMediaPlaylist::playbackModeChanged, this, [&](QMediaPlaylist::PlaybackMode mode) {
+        ui.btnRand->setCheckable(mode == QMediaPlaylist::Random);
+        ui.btnRand->setChecked(mode == QMediaPlaylist::Random);
+    });
 
 	ui.setupUi(this);
 
@@ -50,7 +54,7 @@ void OnePlayer::onStateChanged(QMediaPlayer::State state)
 { //播放器状态变化，更新按钮状态
 	//ui.btnPlay->setEnabled(!(state == QMediaPlayer::PlayingState));
 	//ui.btnPause->setEnabled(state == QMediaPlayer::PlayingState);
-	ui.btnStop->setEnabled(state == QMediaPlayer::PlayingState);
+//	ui.btnStop->setEnabled(state == QMediaPlayer::PlayingState);
 	ui.widgetCover->setState(state == QMediaPlayer::PlayingState);
 }
 
@@ -123,6 +127,17 @@ void OnePlayer::onPositionChanged(qint64 position)
     ui.widgetLyric->repaint();
 }
 
+
+void OnePlayer::resetPlayer() {
+    ui.labelSong->setText("暂无歌曲");
+    ui.labelAlbum->setText("");
+    ui.labelTitle->setText("暂无歌曲");
+    ui.widgetLyric->loadFile("");
+}
+
+
+
+
 void OnePlayer::on_btnAdd_clicked()
 {																																																								 //添加文件
 	QString curPath = QDir::homePath();																																						 //获取系统当前目录
@@ -171,7 +186,7 @@ void OnePlayer::on_btnStop_clicked()
 void OnePlayer::on_listMusic_doubleClicked(const QModelIndex &index)
 { //双击时切换播放文件
 	int rowNo = index.row();
-	mediaPlaylist->setCurrentIndex(rowNo);
+    mediaPlaylist->setCurrentIndex(rowNo);
 	mediaPlayer->play();
 }
 
@@ -180,6 +195,7 @@ void OnePlayer::on_btnClear_clicked()
 	mediaPlaylist->clear();
 	ui.listMusic->clear();
 	mediaPlayer->stop();
+    resetPlayer();
 }
 
 void OnePlayer::on_sliderVolume_valueChanged(int value)
@@ -195,9 +211,10 @@ void OnePlayer::on_sliderProgress_valueChanged(int value)
 void OnePlayer::on_btnRemove_clicked()
 { //移除一个文件
 	int pos = ui.listMusic->currentRow();
+    //从listMusic里删除
 	QListWidgetItem *item = ui.listMusic->takeItem(pos);
-	delete item; //从listMusic里删除
-
+    delete item;
+    //从mediaPlaylist里删除
 	if (mediaPlaylist->currentIndex() == pos) //是当前播放的曲目
 	{
 		int nextPos = 0;
@@ -213,11 +230,13 @@ void OnePlayer::on_btnRemove_clicked()
 		else
 		{
 			mediaPlayer->stop();
-			//ui.LabCurMedia->setText("无曲目");
+            resetPlayer();
 		}
 	}
 	else
 		mediaPlaylist->removeMedia(pos);
+    //从mediaList删除
+    mediaList.removeAt(pos);
 }
 
 void OnePlayer::on_btnPrev_clicked()
@@ -228,6 +247,12 @@ void OnePlayer::on_btnPrev_clicked()
 void OnePlayer::on_btnNext_clicked()
 { //下一文件
 	mediaPlaylist->next();
+}
+
+
+
+void OnePlayer::on_btnRand_clicked() {
+    mediaPlaylist->setPlaybackMode(mediaPlaylist->playbackMode() == QMediaPlaylist::Random ? QMediaPlaylist::Loop : QMediaPlaylist::Random);
 }
 
 void OnePlayer::on_btnList_clicked() { ui.tabWidget->setCurrentIndex(0); }

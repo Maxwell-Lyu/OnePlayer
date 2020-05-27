@@ -41,6 +41,7 @@ private slots:
     //-- 播放控制
     void on_btnPlay_clicked();
     void on_btnStop_clicked();
+    void on_btnRand_clicked();
     void on_btnPrev_clicked();
     void on_btnNext_clicked();
     void on_sliderVolume_valueChanged(int value);
@@ -56,4 +57,6 @@ private:
 	QMediaPlayer* mediaPlayer;      // 播放器
 	QMediaPlaylist* mediaPlaylist;  // 播放列表
     QList<QFileInfo> mediaList;     // 文件信息列表
+
+    void resetPlayer();
 };
