@@ -30,5 +30,6 @@
         <file alias="random">asset/icon/random.svg</file>
         <file alias="clear">asset/icon/remove.svg</file>
         <file alias="next">asset/icon/right.svg</file>
+        <file alias="icon">asset/icon/OnePlayer.ico</file>
     </qresource>
 </RCC>
