@@ -89,14 +89,15 @@ QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyri
 
 #tabWidget QPushButton {
     border-width: 8px 0 0 0;
-    border-image: url(:btn/default) 8 stretch;
+    border-image: url(:btn/default_fill) 8 stretch;
 }
 #tabWidget QPushButton:hover {
-    border-image: url(:btn/hover) 8 stretch;
+    border-image: url(:btn/hover_fill) 8 stretch;
 }
 #tabWidget QPushButton:pressed {
-    border-image: url(:btn/pressed) 8 stretch;
+    border-image: url(:btn/pressed_fill) 8 stretch;
 }
+/*
 #tabWidget QPushButton:checked {
     border-image: url(:btn/default_checked) 8 stretch;
 }
@@ -106,6 +107,7 @@ QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyri
 #tabWidget QPushButton:pressed:checked {
     border-image: url(:btn/pressed_checked) 8 stretch;
 }
+*/
 
 QListView {
     border-width: 1px, 0, 0, 0;
