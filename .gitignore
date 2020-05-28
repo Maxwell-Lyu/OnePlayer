@@ -394,4 +394,4 @@ compile_commands.json
 /test/*
 /lib/*
 /.vscode/*
-/asset/*
+# /asset/*
