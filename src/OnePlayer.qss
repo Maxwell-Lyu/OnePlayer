@@ -41,6 +41,11 @@ QLabel#labelTimePassed, QLabel#labelTimeTotal, QLabel#labelTimeLeft {
     padding-right: 8px;
 }
 
+QLabel#labelVolume {
+    border-image: url(:icon/volume) 0 0 0 0 stretch stretch;
+    margin-right: 4px;
+}
+
 QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyric::checked {
     background: #1e88e5;
 }
