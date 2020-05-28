@@ -28,7 +28,6 @@ public:
 private slots:
 
     //自定义槽函数
-	void onStateChanged(QMediaPlayer::State state);
 	void onPlaylistChanged(int position);
     void onDurationChanged(qint64 duration);
     void onPositionChanged(qint64 position);
@@ -58,5 +57,5 @@ private:
 	QMediaPlaylist* mediaPlaylist;  // 播放列表
     QList<QFileInfo> mediaList;     // 文件信息列表
 
-    void resetPlayer();
+    void resetPlayer();             // 重置播放器
 };

@@ -57,5 +57,6 @@ void CoverWidget::paintEvent(QPaintEvent* event) {
 
 
 void CoverWidget::loadImage(QImage image) {
+    // 加载图片
 	backgroundImage = QPixmap::fromImage(image);
 }

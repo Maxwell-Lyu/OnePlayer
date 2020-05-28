@@ -33,11 +33,8 @@ private:
     // 移动效果的控制
     int bias = 0;
 
-
     // 计时控制动画
     QTimer *timer;
-
-
 
     // 唱片集
     QString album;
@@ -54,15 +51,19 @@ private:
     // 程序的版本
     QString ve;
 
-    //
+    // 加载歌词文件的一行
     void parseLine(QString &line);
+    // 绘制一行歌词
     void paintLine(QPainter &painter, int index, const QRect &rt);
 public:
+    // 重置状态并加载文件
     bool loadFile(QString path);
+    // 设置总时间
     void setDuration(qint64 dur) { duration = dur; }
+    // 设置当前进度
     void setPosition(qint64 pos) { position = pos; }
-    void stop() { timer->stop(); }
-    void start() { timer->start(); }
+    // 控制启停
+    void setState(bool state) {state ? timer->start() : timer->stop();}
 };
 
 #endif // LYRICWIDGET_H
