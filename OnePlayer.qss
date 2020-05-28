@@ -110,9 +110,9 @@ QPushButton#pushButtonList::checked, #pushButtonPlayer::checked, #pushButtonLyri
 */
 
 QListView {
-    border-width: 1px, 0, 0, 0;
+/*    border-width: 1px, 0, 0, 0;
     border-color: #212121;
-    border-style: solid;
+    border-style: solid;*/
     color: white;
     background:transparent;
     margin-left: 4px;
