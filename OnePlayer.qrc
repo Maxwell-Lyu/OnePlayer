@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/style">
-        <file>OnePlayer.qss</file>
+        <file alias="theme">src/OnePlayer.qss</file>
     </qresource>
     <qresource prefix="/img">
         <file alias="coverDefault">asset/img/coverDefault.png</file>

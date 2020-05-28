@@ -4,7 +4,7 @@
 int main(int argc, char* argv[])
 {
 	QApplication a(argc, argv);
-	QFile qss(":/style/OnePlayer.qss");
+    QFile qss(":/style/theme");
 	qss.open(QFile::ReadOnly);
 	qApp->setStyleSheet(qss.readAll());
 	qss.close();

@@ -392,8 +392,7 @@ compile_commands.json
 *creator.user*
 /asset/img/KOBAYASHI AVA2.png
 
-
+/test/*
 /lib/*
 /.vscode/*
 /asset/*
-test.lrc

@@ -11,26 +11,19 @@ TARGET = OnePlayer
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
-# DESTDIR = ./x64/Debug
-# CONFIG += debug
-# LIBS += -L"."
-# DEPENDPATH += .
-# MOC_DIR += .
-# OBJECTS_DIR += debug
-# UI_DIR += .
-# RCC_DIR += .
-CONFIG += c++11
+CONFIG += \
+    static
 
 HEADERS += \
-    OnePlayer.h \
-    CoverWidget.h \
-    LyricWidget.h
+    include/OnePlayer.h \
+    include/CoverWidget.h \
+    include/LyricWidget.h
 SOURCES += \
-    CoverWidget.cpp \
-    OnePlayer.cpp \
-    main.cpp \
-    LyricWidget.cpp
-FORMS += OnePlayer.ui
+    src/CoverWidget.cpp \
+    src/OnePlayer.cpp \
+    src/main.cpp \
+    src/LyricWidget.cpp
+FORMS += src/OnePlayer.ui
 RESOURCES += OnePlayer.qrc
 
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -39,10 +32,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 unix:!macx: LIBS += -L$$PWD/lib/ -ltag -lz
 
-INCLUDEPATH += $$PWD/.
+INCLUDEPATH += $$PWD/include
 DEPENDPATH += $$PWD/.
 
 unix:!macx: PRE_TARGETDEPS += $$PWD/lib/libtag.a
 
 DISTFILES += \
-    OnePlayer.qss
+    src/OnePlayer.qss
