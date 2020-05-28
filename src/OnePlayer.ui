@@ -87,7 +87,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="OnePlayer.qrc">
+             <iconset resource="../OnePlayer.qrc">
               <normaloff>:/icon/lyric</normaloff>:/icon/lyric</iconset>
             </property>
             <property name="iconSize">
@@ -116,7 +116,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="OnePlayer.qrc">
+             <iconset resource="../OnePlayer.qrc">
               <normaloff>:/icon/player</normaloff>:/icon/player</iconset>
             </property>
             <property name="iconSize">
@@ -148,7 +148,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="OnePlayer.qrc">
+             <iconset resource="../OnePlayer.qrc">
               <normaloff>:/icon/list</normaloff>:/icon/list</iconset>
             </property>
             <property name="iconSize">
@@ -220,7 +220,7 @@
               <string/>
              </property>
              <property name="icon">
-              <iconset resource="OnePlayer.qrc">
+              <iconset resource="../OnePlayer.qrc">
                <normaloff>:/icon/remove</normaloff>:/icon/remove</iconset>
              </property>
              <property name="iconSize">
@@ -243,7 +243,7 @@
               <string/>
              </property>
              <property name="icon">
-              <iconset resource="OnePlayer.qrc">
+              <iconset resource="../OnePlayer.qrc">
                <normaloff>:/icon/add</normaloff>:/icon/add</iconset>
              </property>
              <property name="iconSize">
@@ -266,7 +266,7 @@
               <string/>
              </property>
              <property name="icon">
-              <iconset resource="OnePlayer.qrc">
+              <iconset resource="../OnePlayer.qrc">
                <normaloff>:/icon/clear</normaloff>:/icon/clear</iconset>
              </property>
              <property name="iconSize">
@@ -331,6 +331,12 @@
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>64</height>
+              </size>
              </property>
              <property name="sizeIncrement">
               <size>
@@ -506,7 +512,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="OnePlayer.qrc">
+          <iconset resource="../OnePlayer.qrc">
            <normaloff>:/icon/random</normaloff>:/icon/random</iconset>
          </property>
          <property name="iconSize">
@@ -532,7 +538,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="OnePlayer.qrc">
+          <iconset resource="../OnePlayer.qrc">
            <normaloff>:/icon/prev</normaloff>:/icon/prev</iconset>
          </property>
          <property name="iconSize">
@@ -562,7 +568,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="OnePlayer.qrc">
+          <iconset resource="../OnePlayer.qrc">
            <normaloff>:/icon/next</normaloff>:/icon/next</iconset>
          </property>
          <property name="iconSize">
@@ -585,7 +591,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="OnePlayer.qrc">
+          <iconset resource="../OnePlayer.qrc">
            <normaloff>:/icon/stop</normaloff>:/icon/stop</iconset>
          </property>
          <property name="iconSize">
@@ -608,7 +614,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="OnePlayer.qrc">
+          <iconset resource="../OnePlayer.qrc">
            <normaloff>:/icon/play</normaloff>
            <normalon>:/icon/pause</normalon>:/icon/play</iconset>
          </property>
@@ -697,7 +703,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="OnePlayer.qrc"/>
+  <include location="../OnePlayer.qrc"/>
  </resources>
  <connections/>
  <buttongroups>

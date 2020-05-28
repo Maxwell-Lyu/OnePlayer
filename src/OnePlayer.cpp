@@ -48,7 +48,17 @@ OnePlayer::OnePlayer(QWidget *parent)
     ui.widgetCover->loadImage(QImage(":/img/coverDefault"));
 	ui.widgetCover->startRotateAnimation(50, 0.5);
 
-
+    // 快捷键
+    ui.btnList->setShortcut(tr("Ctrl+1"));
+    ui.btnPlayer->setShortcut(tr("Ctrl+2"));
+    ui.btnLyric->setShortcut(tr("Ctrl+3"));
+    ui.btnAdd->setShortcut(tr("Ctrl+O"));
+    ui.btnRemove->setShortcut(tr("Del"));
+    ui.btnStop->setShortcut(tr("S"));
+    ui.btnPrev->setShortcut(tr("Left"));
+    ui.btnPlay->setShortcut(tr("Space"));
+    ui.btnNext->setShortcut(tr("Right"));
+    ui.btnRand->setShortcut(tr("R"));
 }
 
 void OnePlayer::onPlaylistChanged(int position)
@@ -60,9 +70,9 @@ void OnePlayer::onPlaylistChanged(int position)
     TagLib::MPEG::File file(fileInfo.filePath().toStdString().c_str());
 	TagLib::ID3v2::Tag *id3v2tag = file.ID3v2Tag();
     QImage coverQImg(":/img/coverDefault");
-    QString title;
-    QString artist;
-    QString album;
+    QString title("");
+    QString artist("");
+    QString album("");
 	if (id3v2tag)
     {
         // 专辑封面
