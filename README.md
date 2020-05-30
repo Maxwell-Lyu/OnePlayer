@@ -9,5 +9,22 @@ cd ./lib/taglib-1.11.1
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release .
 make
 sudo make install
+cp ./taglib/libtag.a ../
 ```
 # Build the project in QtCreator
+
+
+
+
+
+
+
+# Other problems
+
+1. under ubuntu 14.04: no decoder for audio/mpeg
+
+   ```bash
+   sudo apt-get install gstreamer0.10-fluendo-mp3 
+   ```
+
+   
