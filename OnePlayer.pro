@@ -12,7 +12,7 @@ TARGET = OnePlayer
 DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += \
-    static
+    c++11 
 
 HEADERS += \
     include/OnePlayer.h \
