@@ -1,3 +1,8 @@
+# What is this
+This is a simple music player using Qt5, written for my course NJU AP 2020
+Intented to learn qt as a demo project
+Code: ~1000 lines of cpp
+
 # Dependency for building this project
 ``` bash
 sudo apt install build-essential cmake qt5-default qtcreator qtmultimedia5-dev libqt5multimedia5-plugins
